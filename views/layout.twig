@@ -24,8 +24,8 @@
                   <a class="nav-link" href="#">Rejestracja</a>
               </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Login">
+          <form id="loginForm" action="user" method="post" class="form-inline my-2 my-lg-0">
+              <input id="login" name="login" class="form-control mr-sm-2" type="text" placeholder="Login">
               <input class="form-control mr-sm-2" type="text" placeholder="Hasło">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button>
           </form>
@@ -33,7 +33,17 @@
   </nav>
   {% block body %}
   {% endblock %}
-  
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <h1 class="display-3">Fluid jumbo heading</h1>
+          <p class="lead">Jumbo helper text</p>
+          <hr class="my-2">
+          <p>More info</p>
+          <p class="lead">
+              <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+          </p>
+      </div>
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

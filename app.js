@@ -24,7 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-
+app.post('/user', function(req, res, next) {
+  console.log(req.body);
+  res.render('index', { title: req.body.login });
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
