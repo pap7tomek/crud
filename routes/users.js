@@ -3,8 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
-  console.log(req.body);
-  res.render('index', { title: req.body.login });
+  res.render('index', { title: "Rejestracja" });
 });
 
 module.exports = router;
