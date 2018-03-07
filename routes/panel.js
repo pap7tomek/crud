@@ -4,7 +4,17 @@ var CryptoJS = require("crypto-js");
 var db = require('../config/db');
 
 router.get('/', function(req, res, next) {
-  res.render('register', { title: "Rejestracja" });
+  if(typeof req.session.user == "undefined" || req.session.user == null){
+    res.send("Nie masz uprawnien<br><a href='/'>Strona główna</a>");
+  }
+  else{
+    db.query('SELECT login FROM tbluser WHERE idUser = ?', [req.session.user], function(err, result) {
+      res.render('panel', { title: "Panel",  user: result[0].login});
+    });
+  }
+  
+  
+  
 });
 
 router.post('/', function(req, res, next) {

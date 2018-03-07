@@ -3,7 +3,6 @@ var router = express.Router();
 var CryptoJS = require("crypto-js");
 var db = require('../config/db');
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('register', { title: "Rejestracja" });
 });
