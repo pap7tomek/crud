@@ -16,7 +16,10 @@ router.get('/', function(req, res, next) {
   
   
 });
-
+router.get('/logout', function(req, res, next) {
+    req.session.user = null;
+    res.redirect('/');
+});
 router.post('/', function(req, res, next) {
     var post  = {login:req.body.login, password:CryptoJS.SHA256(req.body.password)};
     db.query('INSERT INTO tbluser SET ?', post, function(err, result) {
