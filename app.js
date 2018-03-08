@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var CryptoJS = require("crypto-js");
 var session = require('express-session');
+var db = require('./config/db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -18,13 +19,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'twig');
 
+//var sessionStore = new MySQLStore(db);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: "Shh, its a secret!"}));
+app.use(session({
+  key: 'session_cookie_name',
+  secret: 'session_cookie_secret',
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

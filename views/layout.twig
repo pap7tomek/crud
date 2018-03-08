@@ -15,17 +15,8 @@
   {% endblock %}
   {% block body %}
   {% endblock %}
-  <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-          <h1 class="display-3">Fluid jumbo heading</h1>
-          <p class="lead">Jumbo helper text</p>
-          <hr class="my-2">
-          <p>More info</p>
-          <p class="lead">
-              <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-          </p>
-      </div>
-  </div>
+  {% block footer %}
+  {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -46,11 +37,10 @@
                     }else{
                         window.location.replace("/panel");
                     }
-
                 })
-
-            
         });
     </script>
+    {% block js %}
+    {% endblock %}
   </body>
 </html>
