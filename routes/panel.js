@@ -16,10 +16,12 @@ router.get('/', function(req, res, next) {
     });
   }  
 });
+
 router.get('/logout', function(req, res, next) {
     req.session.user = null;
     res.redirect('/');
 });
+
 router.post('/save', function(req, res, next) { 
     if(typeof req.session.user == 'undefined'){
       res.send("fail");
@@ -31,6 +33,7 @@ router.post('/save', function(req, res, next) {
       });
     }
 });
+
 router.post('/delete', function(req, res, next) { 
   if(typeof req.session.user == 'undefined'){
     res.send("fail");
@@ -42,4 +45,18 @@ router.post('/delete', function(req, res, next) {
     });
   }
 });
+
+router.post('/edit', function(req, res, next) { 
+  if(typeof req.session.user == 'undefined'){
+    res.send("fail");
+  }else{
+    var text = {text: req.body.text};
+    var post  = {idNote: req.body.idNote};
+    db.query('UPDATE tblnote SET ? WHERE ?', [text, post], function(err, result) {
+      if (err) throw err;
+      res.send("good");
+    });
+  }
+});
+
 module.exports = router;

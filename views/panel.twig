@@ -43,7 +43,7 @@
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                         <span><strong>Usuń</strong></span>            
                     </button>
-                    <button id="edit" data-id="{{note.idNote}}" class="btn btn-primary">
+                    <button data-id="{{note.idNote}}" class="btn btn-primary edit">
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>
                         <span><strong>Edytuj</strong></span>            
                     </button>
@@ -52,6 +52,24 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gratulacje</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Udało się zaktualizować
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 {% block js %}
