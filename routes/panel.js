@@ -31,4 +31,15 @@ router.post('/save', function(req, res, next) {
       });
     }
 });
+router.post('/delete', function(req, res, next) { 
+  if(typeof req.session.user == 'undefined'){
+    res.send("fail");
+  }else{
+    var post  = {idNote: req.body.idNote};
+    db.query('UPDATE tblnote SET visible = 0 WHERE ?', post, function(err, result) {
+      if (err) throw err;
+      res.send("good");
+    });
+  }
+});
 module.exports = router;
