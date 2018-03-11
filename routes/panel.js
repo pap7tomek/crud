@@ -27,7 +27,7 @@ router.post('/save', function(req, res, next) {
       var post  = {text: req.body.note, idUser: req.session.user, visible: 1};
       db.query('INSERT INTO tblnote SET ?', post, function(err, result) {
         if (err) throw err;
-        res.send("good");
+        res.send(JSON.stringify(result.insertId));
       });
     }
 });
